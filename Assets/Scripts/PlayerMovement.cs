@@ -18,12 +18,13 @@ public class PlayerMovement : MonoBehaviour
         
         animator = GetComponent<Animator>();
         initialSpeed = speed;
+        AnimIDS();
 
     }
 
     void Update()
     {
-        AnimIDS();
+        
         MyInput();
         Movement();
 
@@ -60,10 +61,13 @@ public class PlayerMovement : MonoBehaviour
         if (horizontalInput != 0)
         {
             transform.Rotate(0, horizontalInput, 0);
-            animator.SetFloat(walkAnimID, 1);
+            
         }
         if (verticalInput != 0)
+        {
             transform.Translate(0, 0, verticalInput * Time.deltaTime * speed);
+            animator.SetBool(walkAnimID, true);
+        }
 
     }
 }

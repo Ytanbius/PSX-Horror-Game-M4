@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         if (verticalInput != 0)
         {
             transform.Translate(0, 0, verticalInput * Time.deltaTime * speed);
-            animator.SetBool(walkAnimID, true);
+            //animator.SetBool(walkAnimID, true);
         }
 
     }

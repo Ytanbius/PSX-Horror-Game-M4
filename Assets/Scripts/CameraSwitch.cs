@@ -1,12 +1,15 @@
 using Unity.Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
 public class CameraSwitch : MonoBehaviour
 {
     public GameObject areaCam;
-
     private GameObject curCam;
+
+    public MonoBehaviour cameraSystem;
+
     private void Start()
     {
         //camera2.SetActive(true);
@@ -31,10 +34,15 @@ public class CameraSwitch : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        curCam = other.GetComponent<CameraSystem>().curCam;
-        areaCam.SetActive(true);
-        curCam.SetActive(false);
-        other.GetComponent<CameraSystem>().curCam = areaCam;
+        Debug.Log("Trigger");
+        curCam = cameraSystem.GetComponent<CameraSystem>().curCam;
+        if (curCam != areaCam)
+        {
+            areaCam.SetActive(true);
+            curCam.SetActive(false);
+            cameraSystem.GetComponent<CameraSystem>().curCam = areaCam;
+            Debug.Log("if");
+        }
     }
 
     //void SwitchCam1()

@@ -34,8 +34,8 @@ public class PlayerMovement : MonoBehaviour
     void AnimIDS()
     {
 
-        walkAnimID = Animator.StringToHash("walk_001");
-
+            walkAnimID = Animator.StringToHash("walk");
+        Debug.Log("funciono");
     }
 
     void MyInput()
@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         if (verticalInput != 0)
         {
             transform.Translate(0, 0, verticalInput * Time.deltaTime * speed);
-            //animator.SetBool(walkAnimID, true);
+            animator.SetInteger("walk", 1);
         }
 
     }

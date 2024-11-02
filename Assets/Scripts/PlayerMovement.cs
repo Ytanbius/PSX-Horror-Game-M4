@@ -69,6 +69,10 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(0, 0, verticalInput * Time.deltaTime * speed);
             animator.SetInteger("walk", 1);
         }
+        else
+        {
+            animator.SetInteger("walk", 0);
+        }
 
     }
 }

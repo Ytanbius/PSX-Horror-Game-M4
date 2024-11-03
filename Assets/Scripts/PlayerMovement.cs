@@ -3,7 +3,8 @@ using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
-   
+    public int Bullets = 0;
+    public HUDManager hud;
 
     private float horizontalInput;
     private float verticalInput;
@@ -80,5 +81,11 @@ public class PlayerMovement : MonoBehaviour
             animator.SetInteger("walk", 0);
         }
 
+    }
+
+    public void PickBullets()
+    {
+        Bullets++;
+        hud.AtualizacaoBullet(Bullets);
     }
 }

@@ -32,7 +32,7 @@ public class CameraSwitch : MonoBehaviour
         //}
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         Debug.Log("Trigger");
         curCam = cameraSystem.GetComponent<CameraSystem>().curCam;

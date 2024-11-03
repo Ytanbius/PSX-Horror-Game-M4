@@ -10,13 +10,16 @@ public class PlayerMovement : MonoBehaviour
     private bool isRunning;
     public float speed = 2.0f;
     private float initialSpeed;
+
+    private CharacterController controller;
+
     Animator animator;
 
     private int walkAnimID;
 
     void Start()
     {
-        
+        controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         initialSpeed = speed;
         AnimIDS();
@@ -43,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
-        isRunning = Input.GetKey(KeyCode.LeftShift);
+        isRunning = Input.GetKey("LeftShift");
 
     }
 
@@ -66,8 +69,11 @@ public class PlayerMovement : MonoBehaviour
         }
         if (verticalInput != 0)
         {
-            transform.Translate(0, 0, verticalInput * Time.deltaTime * speed);
             animator.SetInteger("walk", 1);
+            transform.Translate(0, 0, verticalInput * Time.deltaTime * speed);
+            //Vector3 move = new Vector3(verticalInput, 0, 0);
+            //controller.Move(move * Time.deltaTime);
+
         }
         else
         {

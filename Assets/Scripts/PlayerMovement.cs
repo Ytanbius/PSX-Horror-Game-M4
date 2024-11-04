@@ -1,11 +1,13 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject bala;
+    public GameObject pick;
     public int Bullets = 0;
-    public HUDManager hud;
-
+    public HUDManager hudBullet;
     private float horizontalInput;
     private float verticalInput;
     private bool isRunning;
@@ -24,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         initialSpeed = speed;
         AnimIDS();
-
+        
     }
 
     void Update()
@@ -33,6 +35,12 @@ public class PlayerMovement : MonoBehaviour
         MyInput();
         Movement();
 
+        if (pick == true && Input.GetKey(KeyCode.E))
+        {
+            PickBullets();
+            Destroy(pick);
+            Destroy(bala);
+        }
     }
 
     void AnimIDS()
@@ -47,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
-        isRunning = Input.GetKey("LeftShift");
+        isRunning = Input.GetKey("left shift");
 
     }
 
@@ -85,7 +93,23 @@ public class PlayerMovement : MonoBehaviour
 
     public void PickBullets()
     {
-        Bullets++;
-        hud.AtualizacaoBullet(Bullets);
+        Bullets += 5;
+        hudBullet.AtualizacaoBullet(Bullets);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Amno")
+        {
+            pick.SetActive(true);
+            Debug.Log("ta ino");
+        }
+
+        
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        pick.SetActive(false);
     }
 }

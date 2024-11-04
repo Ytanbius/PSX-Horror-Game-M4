@@ -38,9 +38,10 @@ public class PlayerMovement : MonoBehaviour
         if (pick == true && Input.GetKey(KeyCode.E))
         {
             PickBullets();
-            Destroy(pick);
             Destroy(bala);
+            Destroy(pick);
         }
+       
     }
 
     void AnimIDS()
@@ -99,17 +100,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Amno")
+        
+         if (other.tag == "Amno")
         {
             pick.SetActive(true);
             Debug.Log("ta ino");
         }
-
+       
         
     }
 
     private void OnTriggerExit(Collider other)
     {
-        pick.SetActive(false);
+        if (other.tag == "Amno")
+        {
+            pick.SetActive(false);
+        }
     }
 }

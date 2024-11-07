@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isRunning)
         {
-            speed = initialSpeed + 5.0f;
+            speed = initialSpeed + 3.0f;
             animator.SetInteger("running", 1);
         }
         else
@@ -84,8 +84,6 @@ public class PlayerMovement : MonoBehaviour
             
             transform.Translate(0, 0, verticalInput * Time.deltaTime * speed);
             animator.SetInteger("walk", 1);
-            //Vector3 move = new Vector3(verticalInput, 0, 0);
-            //controller.Move(move * Time.deltaTime);
 
         }
         else

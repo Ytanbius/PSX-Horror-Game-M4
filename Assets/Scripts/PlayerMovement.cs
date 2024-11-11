@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public GameObject bala;
+    private GameObject bala;
     public GameObject pick;
     public int Bullets = 0;
     public HUDManager hudBullet;
@@ -35,11 +35,11 @@ public class PlayerMovement : MonoBehaviour
         MyInput();
         Movement();
 
-        if (pick == true && Input.GetKey(KeyCode.E))
+        if (bala != null && pick == true && Input.GetKey(KeyCode.E))
         {
             PickBullets();
             Destroy(bala);
-            Destroy(pick);
+            pick.SetActive(false);
         }
        
     }
@@ -104,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
         
          if (other.tag == "Amno")
         {
+            bala = other.gameObject;
             pick.SetActive(true);
             Debug.Log("ta ino");
         }
@@ -116,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.tag == "Amno")
         {
             pick.SetActive(false);
+            bala = null;
         }
     }
 }

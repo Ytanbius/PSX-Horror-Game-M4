@@ -14,24 +14,16 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 2.0f;
     private float initialSpeed;
 
-    private CharacterController controller;
-
     Animator animator;
-
-    private int walkAnimID;
 
     void Start()
     {
-        controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         initialSpeed = speed;
-        AnimIDS();
-        
     }
 
     void Update()
     {
-        
         MyInput();
         Movement();
 
@@ -41,29 +33,17 @@ public class PlayerMovement : MonoBehaviour
             Destroy(bala);
             pick.SetActive(false);
         }
-       
-    }
-
-    void AnimIDS()
-    {
-
-            walkAnimID = Animator.StringToHash("walk");
-        Debug.Log("funciono");
     }
 
     void MyInput()
     {
-
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         isRunning = Input.GetKey("left shift");
-
     }
 
     void Movement()
     {
-
-
         if (isRunning)
         {
             speed = initialSpeed + 3.0f;
@@ -77,26 +57,21 @@ public class PlayerMovement : MonoBehaviour
         if (horizontalInput != 0)
         {
             transform.Rotate(0, horizontalInput, 0);
-            
         }
         if (verticalInput != 0)
         {
-            
             transform.Translate(0, 0, verticalInput * Time.deltaTime * speed);
             animator.SetInteger("walk", 1);
-
         }
         else
         {
             animator.SetInteger("walk", 0);
         }
-
     }
 
     public void PickBullets()
     {
-        Bullets += 5;
-        hudBullet.AtualizacaoBullet(Bullets);
+        hudBullet.AtualizacaoBullet(Bullets += 5);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -106,7 +81,6 @@ public class PlayerMovement : MonoBehaviour
         {
             bala = other.gameObject;
             pick.SetActive(true);
-            Debug.Log("ta ino");
         }
        
         

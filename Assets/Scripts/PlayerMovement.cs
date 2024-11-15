@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         MyInput();
         Movement();
 
-        if (bala != null && pick == true && Input.GetKey(KeyCode.E))
+        if (bala != null && pick == true && Input.GetKeyDown(KeyCode.E))
         {
             PickBullets();
             Destroy(bala);

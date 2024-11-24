@@ -8,9 +8,12 @@ public class PlayerMovement : MonoBehaviour
     public GameObject pick;
     public int Bullets = 0;
     public HUDManager hudBullet;
+
     private float horizontalInput;
     private float verticalInput;
     private bool isRunning;
+    private bool movLock;
+
     public float speed = 2.0f;
     private float initialSpeed;
 
@@ -24,15 +27,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        MovLock();
         MyInput();
         Movement();
-
-        if (bala != null && pick == true && Input.GetKeyDown(KeyCode.E))
-        {
-            PickBullets();
-            Destroy(bala);
-            pick.SetActive(false);
-        }
+        PickBullets();
     }
 
     void MyInput()
@@ -44,34 +42,56 @@ public class PlayerMovement : MonoBehaviour
 
     void Movement()
     {
-        if (isRunning)
+        if (movLock == false)
         {
-            speed = initialSpeed + 3.0f;
-            animator.SetInteger("running", 1);
-        }
-        else
-        {
-            speed = initialSpeed;
-            animator.SetInteger("running", 0);
-        }
-        if (horizontalInput != 0)
-        {
-            transform.Rotate(0, horizontalInput, 0);
-        }
-        if (verticalInput != 0)
-        {
-            transform.Translate(0, 0, verticalInput * Time.deltaTime * speed);
-            animator.SetInteger("walk", 1);
-        }
-        else
-        {
-            animator.SetInteger("walk", 0);
+            if (isRunning)
+            {
+                speed = initialSpeed + 3.0f;
+                animator.SetInteger("running", 1);
+            }
+            else
+            {
+                speed = initialSpeed;
+                animator.SetInteger("running", 0);
+            }
+            if (horizontalInput != 0)
+            {
+                transform.Rotate(0, horizontalInput, 0);
+            }
+            if (verticalInput != 0)
+            {
+                transform.Translate(0, 0, verticalInput * Time.deltaTime * speed);
+                animator.SetInteger("walk", 1);
+            }
+            else
+            {
+                animator.SetInteger("walk", 0);
+            }
         }
     }
 
     public void PickBullets()
     {
-        hudBullet.AtualizacaoBullet(Bullets += 5);
+        if (bala != null && pick == true && Input.GetKeyDown(KeyCode.E))
+        {
+            hudBullet.AtualizacaoBullet(Bullets += 5);
+            Destroy(bala);
+            pick.SetActive(false);
+        }
+    }
+
+    void MovLock()
+    {
+        if (Input.GetKeyDown(KeyCode.P) && movLock == false)
+        {
+            movLock = true;
+            animator.SetInteger("walk", 0);
+            animator.SetInteger("running", 0);
+        }
+        else if (Input.GetKeyDown(KeyCode.P) && movLock == true)
+        {
+            movLock = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

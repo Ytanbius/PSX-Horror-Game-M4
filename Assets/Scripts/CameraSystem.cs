@@ -10,9 +10,7 @@ public class CameraSystem : MonoBehaviour
     {
         if (curCam == triggerCam)
         {
-
             targetDestroy.SetActive(false);
-
         }
     }
 }

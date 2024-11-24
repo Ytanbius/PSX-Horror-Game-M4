@@ -51,7 +51,7 @@ AnimatorState:
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
-  m_TimeParameter: idle
+  m_TimeParameter: forceIdle
 --- !u!1107 &-4190469933090815225
 AnimatorStateMachine:
   serializedVersion: 6
@@ -89,7 +89,7 @@ AnimatorController:
   m_Name: Animation
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: idle
+  - m_Name: forceIdle
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -197,9 +197,9 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: -5097121600575731516, guid: 4788439cbfd7de343908b6ed149c5023, type: 3}
   m_Tag: 
-  m_SpeedParameter: idle
+  m_SpeedParameter: forceIdle
   m_MirrorParameter: 
-  m_CycleOffsetParameter: idle
+  m_CycleOffsetParameter: forceIdle
   m_TimeParameter: 20
 --- !u!1102 &7925137079500403069
 AnimatorState:

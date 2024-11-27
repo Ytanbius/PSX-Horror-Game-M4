@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HUDManager : MonoBehaviour
 {
@@ -12,8 +13,23 @@ public class HUDManager : MonoBehaviour
 
     private void Start()
     {
-        HP.text = vida.ToString();
+       // HP.text = vida.ToString();
         
+    }
+
+    private void Update()
+    {
+        HP.text = vida.ToString();
+        if (vida <= 0)
+        {
+            SceneManager.LoadScene(2);
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            vida -= 1;
+        }
+
     }
     public void AtualizacaoBullet(int municao)
     {

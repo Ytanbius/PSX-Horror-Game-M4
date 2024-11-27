@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         MyInput();
         Movement();
         PickBullets();
+        
     }
 
     void MyInput()

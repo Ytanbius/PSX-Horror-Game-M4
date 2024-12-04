@@ -2561,7 +2561,7 @@ GameObject:
   - component: {fileID: 283377369}
   m_Layer: 0
   m_Name: Camera8
-  m_TagString: Untagged
+  m_TagString: Follow Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3153,8 +3153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerCam: {fileID: 2074064807}
-  targetDestroy: {fileID: 893974121}
   curCam: {fileID: 330585543}
+  player: {fileID: 1859548275}
+  target: {fileID: 893974121}
 --- !u!1001 &351158535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22374,7 +22375,7 @@ GameObject:
   - component: {fileID: 2044593060}
   m_Layer: 0
   m_Name: Camera7
-  m_TagString: Untagged
+  m_TagString: Follow Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

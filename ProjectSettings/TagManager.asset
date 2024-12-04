@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Amno
   - PredioInvisivel
+  - Follow Camera
   layers:
   - Default
   - TransparentFX

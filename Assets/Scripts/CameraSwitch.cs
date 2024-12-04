@@ -10,28 +10,6 @@ public class CameraSwitch : MonoBehaviour
 
     public MonoBehaviour cameraSystem;
 
-    private void Start()
-    {
-        //camera2.SetActive(true);
-        //camera1.SetActive(false);
-        //camera3.SetActive(false);
-        //curCam = camera2;
-    }
-
-    private void Update()
-    {
-        
-        //if (Input.GetKeyDown(KeyCode.L))
-        //{
-        //    SwitchCam1();
-        //}
-
-        //else if (Input.GetKeyDown(KeyCode.P))
-        //{
-        //    SwitchCam2();
-        //}
-    }
-
     private void OnTriggerStay(Collider other)
     {
         Debug.Log("Trigger");
@@ -44,18 +22,4 @@ public class CameraSwitch : MonoBehaviour
             Debug.Log("if");
         }
     }
-
-    //void SwitchCam1()
-    //{
-    //    camera1.SetActive(true);
-    //    curCam.SetActive(false);
-    //    curCam = camera1;
-    //}
-
-    //void SwitchCam2()
-    //{
-    //    camera2.SetActive(true);
-    //    curCam.SetActive(false);
-    //    curCam = camera2;
-    //}
 }

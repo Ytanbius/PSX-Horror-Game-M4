@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraSystem : MonoBehaviour
@@ -7,24 +8,24 @@ public class CameraSystem : MonoBehaviour
     public GameObject player;
 
     public GameObject target;
-    private Vector3 playerPosition;
-    private Vector3 cameraPosition;
 
     private void Update()
-    {
-        playerPosition = player.transform.position;
-        cameraPosition = curCam.transform.position;
+    { 
         if (curCam == triggerCam)
         {
             target.SetActive(false);
         }
 
-        // Acho que não funciona
+    }
 
-        //if (curCam.CompareTag("Follow Camera"))
-        //{
-        //    cameraPosition = new Vector3(playerPosition.x, cameraPosition.y, cameraPosition.z);
-        //    curCam.transform.Translate(cameraPosition);  
-        //}
+    private void LateUpdate()
+    {
+        if(curCam.CompareTag("Follow Camera"))
+        {
+            Vector3 desiredPosition = new Vector3(curCam.transform.position.x, curCam.transform.position.y, player.transform.position.z);
+
+            curCam.transform.position = desiredPosition;
+            curCam.transform.LookAt(player.transform);
+        }
     }
 }

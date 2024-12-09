@@ -8,6 +8,9 @@ TagManager:
   - PredioInvisivel
   - Follow Camera
   - Inimigo
+  - End
+  - Key
+  - Casa
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
@@ -104,7 +105,16 @@ public class PlayerMovement : MonoBehaviour
             pick.SetActive(true);
         }
        
-        
+        if (other.tag == "Casa")
+        {
+            pick.SetActive(true);
+        }
+
+        if(other.tag == "End")
+        {
+            pick.SetActive(true);
+            
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -113,6 +123,16 @@ public class PlayerMovement : MonoBehaviour
         {
             pick.SetActive(false);
             bala = null;
+        }
+
+        if (other.tag == "Casa")
+        {
+            pick.SetActive(false);
+        }
+
+        if (other.tag == "End")
+        {
+            pick.SetActive(false);
         }
     }
 }

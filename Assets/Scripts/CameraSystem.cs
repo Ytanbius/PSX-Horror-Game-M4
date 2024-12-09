@@ -27,5 +27,12 @@ public class CameraSystem : MonoBehaviour
             curCam.transform.position = desiredPosition;
             curCam.transform.LookAt(player.transform);
         }
+        else if (curCam.CompareTag("Follow Camera X"))
+        {
+            Vector3 desiredPosition = new Vector3(player.transform.position.x, curCam.transform.position.y, curCam.transform.position.z);
+
+            curCam.transform.position = desiredPosition;
+            curCam.transform.LookAt(player.transform);
+        }
     }
 }

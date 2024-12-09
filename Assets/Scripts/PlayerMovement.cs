@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private float verticalInput;
     private bool isRunning;
     private bool movLock;
+    private bool hasKey;
 
     public float speed = 2.0f;
     private float initialSpeed;
@@ -99,18 +100,18 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-         if (other.tag == "Amno")
+         if (other.CompareTag("Amno"))
         {
             bala = other.gameObject;
             pick.SetActive(true);
         }
        
-        if (other.tag == "Casa")
+        if (other.CompareTag("Casa"))
         {
             pick.SetActive(true);
         }
 
-        if(other.tag == "End")
+        if(other.CompareTag("End"))
         {
             pick.SetActive(true);
             
@@ -119,18 +120,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Amno")
+        if (other.CompareTag("Amno"))
         {
             pick.SetActive(false);
             bala = null;
         }
 
-        if (other.tag == "Casa")
+        if (other.CompareTag("Casa"))
         {
             pick.SetActive(false);
         }
 
-        if (other.tag == "End")
+        if (other.CompareTag("End"))
         {
             pick.SetActive(false);
         }

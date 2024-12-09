@@ -6117,13 +6117,13 @@ PrefabInstance:
       addedObject: {fileID: 1859548280}
     - targetCorrespondingSourceObject: {fileID: 8324124559323253087, guid: 49fde3a4f9fcbb54f84173816a9ddad3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1859548284}
-    - targetCorrespondingSourceObject: {fileID: 8324124559323253087, guid: 49fde3a4f9fcbb54f84173816a9ddad3, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1859548287}
     - targetCorrespondingSourceObject: {fileID: 8324124559323253087, guid: 49fde3a4f9fcbb54f84173816a9ddad3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1859548288}
+    - targetCorrespondingSourceObject: {fileID: 8324124559323253087, guid: 49fde3a4f9fcbb54f84173816a9ddad3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1859548290}
   m_SourcePrefab: {fileID: 100100000, guid: 49fde3a4f9fcbb54f84173816a9ddad3, type: 3}
 --- !u!1001 &559966561
 PrefabInstance:
@@ -6560,7 +6560,7 @@ GameObject:
   - component: {fileID: 585567595}
   m_Layer: 0
   m_Name: Camera9
-  m_TagString: Follow Camera
+  m_TagString: Follow Camera X
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18464,6 +18464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1492988676}
   - component: {fileID: 1492988675}
+  - component: {fileID: 1492988677}
   m_Layer: 0
   m_Name: colisorCasa
   m_TagString: Casa
@@ -18508,6 +18509,19 @@ Transform:
   - {fileID: 917898670}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1492988677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492988674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0adca94134f6f3e43aeeb052ba09f4b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interact: {fileID: 1910199993}
 --- !u!1001 &1495526015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22548,8 +22562,47 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!65 &1859548284
-BoxCollider:
+--- !u!54 &1859548287
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859548275}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0.5, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!114 &1859548288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859548275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15485177f8f64f949b4735812d054ce8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &1859548290
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -22566,48 +22619,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.8, z: 1}
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Height: 1.8
+  m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
---- !u!54 &1859548287
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1859548275}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &1859548288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1859548275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15485177f8f64f949b4735812d054ce8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1863859304
 GameObject:
   m_ObjectHideFlags: 0
@@ -23131,7 +23147,7 @@ GameObject:
   - component: {fileID: 1910199996}
   - component: {fileID: 1910199995}
   m_Layer: 5
-  m_Name: pick iten
+  m_Name: interact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23176,7 +23192,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press E to pick item
+  m_text: Press E to Interact
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -25287,7 +25303,7 @@ GameObject:
   - component: {fileID: 2085922476}
   m_Layer: 0
   m_Name: Camera10
-  m_TagString: Follow Camera
+  m_TagString: Follow Camera X
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
